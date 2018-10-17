@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}-分享</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron d-flex">
+        <div class="h4 my-auto mx-auto" id="countdown"></div>
+    </div>
+    <div class="container-fluid d-flex">
+        <div class="mx-auto my-auto ">
+            <h1 class="display-3">{{ title }}</h1>
+            {{ content }}
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid text-center pt-3 pb-3 mt-4">
+        <div class="display-4">也想分享？</div>
+        <br>
+        <a href="/" class="btn btn-outline-primary btn-lg" >去分享</a>
+        <p class="mt-4 mb-0">All Rights Reserved<br>Powered by <span class="lead">Jim</span><br>2018</p>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script>
+    function getTimeRemaining(endtime){
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var seconds = Math.floor( (t/1000) % 60 );
+        var minutes = Math.floor( (t/1000/60) % 60 );
+        var hours = Math.floor( (t/(1000*60*60)) % 24 );
+        var days = Math.floor( t/(1000*60*60*24) );
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        }
+    }
+    function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var timeinterval = setInterval(function () {
+            var t = getTimeRemaining(endtime);
+            clock.innerHTML = t.days + '天' + t.hours + '小时' +  t.minutes + '分钟' + t.seconds + '秒后此文章销毁';
+            if (t.total <= 0) {
+                location.reload();
+                clearInterval(timeinterval);
+            }
+        }, 1000);
+    }
+    var end = {{ endtime }};
+    end = end * 1000;
+    var date = new Date(end).toISOString();
+    initializeClock('countdown',date)
+</script>
+</body>
+</html>

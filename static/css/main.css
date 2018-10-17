@@ -1,0 +1,36 @@
+/*section {*/
+    /*padding:0;*/
+    /*margin:0;*/
+
+    /*top:0;*/
+    /*left:0;*/
+
+    /*width: 100%;*/
+    /*height: 100%;*/
+
+    /*background-image: url("images/overlay.png"),url("images/pattern-size1.svg");*/
+/*}*/
+
+/*section.header {*/
+    /*background-color: #4696e5;*/
+    /*position: fixed;*/
+/*}*/
+
+/*section#container-2 {*/
+    /*background-color: white;*/
+    /*position: relative;*/
+/*}*/
+
+/*#input-area {*/
+    /*margin: auto;*/
+    /*width: 70%;*/
+/*}*/
+
+html, body{
+    height: 100%;
+}
+
+.bg-index {
+    background-color: #4696e5;
+    background-image: url("images/overlay.png"),url("images/pattern-size1.svg");
+}
