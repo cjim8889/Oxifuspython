@@ -1,4 +1,3 @@
-# coding:utf-8
 import json
 
 from flask import session, make_response, Flask, request, render_template, send_from_directory
